@@ -3,9 +3,9 @@
 The famous printf project is a student-implementation of the printf function, that mimics the printf function in C. It's one of the projects done at ALX Software Engineering program, in partial fulfilment of the requirements for graduation and progress.
 
 ### Project Timeline ###
--**Released:** Fri 15 Sep 2023.
--**1st Deadline:** Wed 20 Sept 2023.
--**Duration:** 5 days.
+- **Released:** Fri 15 Sep 2023.
+- **1st Deadline:** Wed 20 Sept 2023.
+- **Duration:** 5 days.
 
 ### Collaborators ###
 - [William Inyam](https://github.com/thecypherzen/)
