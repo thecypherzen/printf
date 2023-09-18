@@ -20,5 +20,5 @@ The famous printf project is a student-implementation of the printf function, th
 Files on the project are task based and are as follows:
 | SN | File | Description |
 |----|------|-------------|
-| 1. |[taskzero.c](https://github.com/) | A function that produces output to stdout according to a format.</br> - Returns: the number of characters printed (excluding the null byte used to end output to strings).</br> #### Handled ####</br> - c, s and % specifiers.</br>#### Not handled ####</br> - buffer handling of C Library printf function.</br>- flag characters, field width, precision and length modifiers.|
-| 2. | Pending | 
+| 1. |[taskzero.c](https://github.com/) | A function that produces output to stdout according to a format.</br><ul><li>Returns the number of characters printed (excluding the null byte used to end output to strings).</li>**Handled**</br><li>c, s and % specifiers.</li>**Not handled**</br><li>buffer handling of C Library printf function.</li><li>flag characters, field width, precision and length modifiers.</li>|
+| 2. | Pending |
