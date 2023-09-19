@@ -11,6 +11,4 @@ int _printf(const char *format, ...);
 int my_putchar(char);
 int my_puts(char *);
 int format_printr(va_list, char);
-int print_int(int, int);
-
 #endif
