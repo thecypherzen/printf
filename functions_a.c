@@ -7,10 +7,15 @@
  */
 int my_puts(char *str)
 {
-	if (str)
-		return (write(1, str, (int)strlen(str)));
-	else
+	if (!str)
 		return (0);
+
+	int length = 0;
+
+	while (str[length])
+		length++;
+
+	return (write(1, str, length));
 }
 
 /**
@@ -20,10 +25,7 @@ int my_puts(char *str)
  */
 int my_putchar(char chr)
 {
-	if (chr)
-		return (write(1, &chr, 1));
-	else
-		return (0);
+	return (write(1, &chr, 1));
 }
 /**
  * print_int - prints signed int to stdout
@@ -67,26 +69,42 @@ int print_int(int n, int signed_int)
 */
 int format_printr(va_list list, char chr)
 {
-	if (chr == 'c')
-		return (my_putchar(va_arg(list, int)));
-	if (chr == 's')
-		return (my_puts(va_arg(list, char *)));
-	if (chr == '%')
-		return (my_putchar('%'));
-	if (chr == 'd' || chr == 'i')
-		return (print_int(va_arg(list, int), 1));
-	if (chr == 'u')
-		return (print_int(va_arg(list, int), 0));
-	if (chr == 'b' || chr == 'o' || chr == 'x' || chr == 'X')
+	int n = 0;
+
+	switch (chr)
+	{
+	case 'c':
+		n = my_putchar(va_arg(list, int));
+		break;
+	case 's':
+		n = my_puts(va_arg(list, char *));
+		break;
+	case '%':
+		n = my_putchar('%');
+		break;
+	case 'd':
+	case 'i':
+		n = print_int(va_arg(list, int), 1);
+		break;
+	case 'u':
+		n = print_int(va_arg(list, int), 0);
+		break;
+	case 'b':
+	case 'o':
+	case 'x':
+	case 'X':
 	{
 		char *hold;
-		int n;
 		_uint obase;
 
 		obase = (chr == 'b' ? 2 : (chr == 'o' ? 0 : 1));
 		hold = base_c(va_arg(list, _uint), obase, chr == 'x' ? 0 : 1);
-		n = my_puts(hold), free(hold);
-		return (n);
+		n = my_puts(hold);
+		free(hold);
 	}
-	return (0);
+	break;
+	default:
+		break;
+	}
+	return (n);
 }
