@@ -6,8 +6,11 @@
  * Return: num of chars written.
  */
 int my_puts(char *str)
-{ 
-	return (write(1, str, (int)strlen(str))); 
+{
+	if (str)
+		return (write(1, str, (int)strlen(str)));
+	else
+		return (0);
 }
 
 /**
@@ -17,7 +20,10 @@ int my_puts(char *str)
  */
 int my_putchar(char chr)
 {
-	return (write(1, &chr, 1));
+	if (chr)
+		return (write(1, &chr, 1));
+	else
+		return (0);
 }
 /**
  * print_int - prints signed int to stdout
@@ -31,7 +37,7 @@ int print_int(int n, int is_signed)
 
 	neg = 0, div = 1;
 
-	if (!(signed int)is_signed)
+	if (!(signed int is_signed))
 		num = (unsigned int)n;
 	else if (n < 0)
 	{
