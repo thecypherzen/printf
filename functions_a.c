@@ -1,31 +1,31 @@
 #include "main.h
 
 /**
- *my_puts - prints a string to stdout
- *@str: ptr to string
- * Return: num of chars written
- */
+* my_puts - prints a string to stdout
+* @str: ptr to string
+* Return: num of chars written
+*/
 int my_puts(char *str) { return (write(1, str, (int)strlen(str))); }
 
 /**
- * my_putchar - prints a char to stdout
- * @chr: the character to print.
- * Return: number of characters written to stdout
- */
+* my_putchar - prints a char to stdout
+* @chr: the character to print.
+* Return: number of characters written to stdout
+*/
 int my_putchar(char chr) { return (write(1, &chr, 1)); }
 /**
- * print_int - prints signed int to stdout
- * @n: the int value
- * @is_signed: 0 for unsigned, 1 for signed
- * Return: the number of digits printed
- */
-int print_int(int n, int is_signed)
+* print_int - prints signed int to stdout
+* @n: the int value
+* @signed_int: 0 for unsigned, 1 for signed
+* Return: the number of digits printed
+*/
+int print_int(int n, int signed_int)
 {
 	unsigned int neg, div, fd, num;
 
 	neg = 0, div = 1;
 
-	if (!signed int is_signed)
+	if (!signed_int)
 		num = (unsigned int)n;
 	else if (n < 0) {
 		my_putchar('-');
@@ -43,11 +43,11 @@ int print_int(int n, int is_signed)
 }
 
 /**
- * format_printr - Prints out put based on format specifier
- * @chr: the char to print
- * @list: va_list of args.
- * Return: number of chars printed.
- */
+* format_printr - Prints out put based on format specifier
+* @chr: the char to print
+* @list: va_list of args.
+* Return: number of chars printed.
+*/
 int format_printr(va_list list, char chr) {
 	if (chr == 'c')
 		return (my_putchar(va_arg(list, int)));
@@ -59,5 +59,16 @@ int format_printr(va_list list, char chr) {
 		return (print_int(va_arg(list, int), 1));
 	if (chr == 'u')
 		return (print_int(va_arg(list, int), 0));
+	if (chr == 'b' || chr == 'o' || chr == 'x' || chr == 'X')
+	{
+		char *hold;
+		int n;
+		_uint obase;
+
+		obase = (chr == 'b' ? 2 : (chr == 'o' ? 0 : 1));
+		hold = base_c(va_arg(list, _uint), obase, chr == 'x' ? 0 : 1);
+		n = my_puts(hold), free(hold);
+		return (n);
+	}
 	return (0);
 }
