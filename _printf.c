@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * _printf - produces output according to a format (for c, s and %).
  * @format: the formatting string
