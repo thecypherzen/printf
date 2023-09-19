@@ -1,0 +1,32 @@
+#include "main.h"
+
+/**
+ * _printf - produces output according to a format (for c, s and %).
+ * @format: the formatting string
+ * Return: number of chars printed to stdout.
+ */
+int _printf(const char *format, ...)
+{
+	int n;
+	va_list list;
+
+	n = 0;
+	if (format)
+	{
+		va_start(list, format);
+		while (*format)
+		{
+			if (*format == '%')
+			{
+				n += format_printr(list, *(format + 1));
+				format++;
+			}
+
+			else
+				n += my_putchar(*format);
+			format++;
+		}
+		va_end(list);
+	}
+	return (n);
+}
