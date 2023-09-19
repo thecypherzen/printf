@@ -5,7 +5,10 @@
  * @str: ptr to string
  * Return: num of chars written.
  */
-int my_puts(char *str) { return (write(1, str, (int)strlen(str))); }
+int my_puts(char *str)
+{ 
+	return (write(1, str, (int)strlen(str))); 
+}
 
 /**
  * my_putchar - prints a char to stdout
