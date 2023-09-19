@@ -14,29 +14,32 @@ int main(void)
 	len = _printf("_pf-> Let's try to printf a simple sentence.\n");
 	len2 = printf(" pf-> Let's try to printf a simple sentence.\n\n");
 
-	len3 = _printf("_pf-> Length:[%d, %i]\n", len2, len2);
-	len4 = printf("  pf-> Length:[%d, %i]\n\n", len2, len2);
-	printf("pf-> len3: %d(%i) | len4: %d(%i)\n", len3, len3, len4, len4);
-	_printf("_pf-> len3: %d(%i) | len4: %d(%i)\n\n", len3, len3, len4, len4);
+	_printf("_pf->\t%s%%s\n", "", "hall of fame");
+	printf(" pf->\t%s%%s\n\n","");
 
-	len = _printf("-pf-> Negative: [%d(%i)]\n", -762534, -762534);
-	len2 = printf(" pf-> Negative: [%d(%i)]\n", -762534, -762534);
+	len3 = _printf("_pf->\tLength:[%d, %i]\n", len2, len2);
+	len4 = printf("  pf->\tLength:[%d, %i]\n\n", len2, len2);
+	printf("pf->\tlen3: %d(%i) | len4: %d(%i)\n", len3, len3, len4, len4);
+	_printf("_pf->\tlen3: %d(%i) | len4: %d(%i)\n\n", len3, len3, len4, len4);
+
+	len = _printf("-pf->\tNegative: [%d(%i)]\n", -762534, -762534);
+	len2 = printf(" pf->\tNegative: [%d(%i)]\n", -762534, -762534);
 	printf("_pf->len: %d | pf->len: %d\n\n", len, len2);
 
-	_printf("_pf-> String:[%s]\n", "I am a string !");
-	printf("  pf-> String:[%s]\n\n", "I am a string !");
+	_printf("_pf->\tString:[%s]\n", 27343434);
+	printf("  pf->\tString:[%s]\n\n", "27343434");
 
-	_printf("_pf-> Character:[%c]\n", 'H');
-	printf(" pf-> Character:[%c]\n", 'H');
+	_printf("_pf->\tCharacter:[%c]\n", 97);
+	printf(" pf->\tCharacter:[%c]\n", 97);
 	printf("\n");
 
-	len = _printf("_pf-> Percent:[%%]");
+	len = _printf("_pf->\tPercent:[%%]");
 	printf(" | ");
-	len2 = printf(" pf-> Percent:[%%]");
+	len2 = printf(" pf->\tPercent:[%%]");
 	printf("\n");
 
-	_printf("_pf-> Len:[%d] | ", len);
-	printf("  pf-> Len:[%d]\n", len2);
+	_printf("_pf->\tLen:[%d] | ", len);
+	printf("  pf->\tLen:[%d]\n", len2);
 	printf("\n");
 
 	len = _printf("_pf->\tUnsigned:[%u(%d)]\n", ui, ui);

@@ -7,7 +7,13 @@
  */
 int my_puts(char *str)
 {
-	return (write(1, str, (int)strlen(str)));
+	if (str)
+	{
+		printf("size: %d\n", (int)sizeof(str));
+		return (write(1, str, (int)strlen(str)));
+	}
+	else
+		return (0);
 }
 
 /**
@@ -17,7 +23,10 @@ int my_puts(char *str)
  */
 int my_putchar(char chr)
 {
-	return (write(1, &chr, 1));
+	if (chr)
+		return (write(1, &chr, 1));
+	else
+		return (0);
 }
 /**
  * print_sint - prints signed int to stdout
