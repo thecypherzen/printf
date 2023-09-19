@@ -17,9 +17,16 @@ char *base_c(_uint n, _uint obase, int is_upper)
 	buff = malloc(sizeof(char) * 65);
 	if (!buff)
 		return (NULL);
+
 	/*assign divisor based on obase */
 	div = (obase == 0 ? 8 : (obase == 2 ? 2 : 16));
 	i = 0;
+
+	if (n == 0)
+	{
+		buff[0] = 48, buff[1] = '\0';
+		return (buff);
+	}
 	while (n > 0)
 	{
 		quo = n / div;
