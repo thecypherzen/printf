@@ -42,8 +42,8 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
 
-    printf("(pf)->\t%d | %i\n", 0xb, 0xb);
-    _printf("(_pf)->\t%d | %i\n", 0xb, 0xb);
+    printf("(pf)->\t31(%x), 127(%x) | 31(%X), 127(%X)\n", 31, 127, 31, 255);
+    _printf("(_pf)->\t%S\n", "Best\nSchool");
 /*    len = _printf(“%c%c%c%c%s\n”, -48, 98, 99, 100, word);
     len2 = printf(“%c%c%c%c%s\n”, -48, 98, 99, 100, word);
     printf(“%d | %d\n”, len, len2);

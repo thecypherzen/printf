@@ -9,8 +9,7 @@
  */
 char *base_c(_uint n, _uint obase, int is_upper)
 {
-	_uint i, rem, quo, div;
-	_uint alpha[6] = {97, 98, 99, 100, 101, 102};
+	_uint i, rem, quo, alpha[6] = {97, 98, 99, 100, 101, 102};
 	_uint digits[6] = {10, 11, 12, 13, 14, 15};
 	char *buff;
 
@@ -18,9 +17,7 @@ char *base_c(_uint n, _uint obase, int is_upper)
 	if (!buff)
 		return (NULL);
 	/*assign divisor based on obase */
-	div = (obase == 0 ? 8 : (obase == 2 ? 2 : 16));
 	i = 0;
-
 	if (n == 0)
 	{
 		buff[0] = 48, buff[1] = '\0';
@@ -28,8 +25,8 @@ char *base_c(_uint n, _uint obase, int is_upper)
 	}
 	while (n > 0)
 	{
-		quo = n / div;
-		rem = get_rem(digits, alpha, n % div, is_upper);
+		quo = n / obase;
+		rem = get_rem(digits, alpha, n % obase, is_upper);
 		buff[i] = rem, i++;
 		n = quo;
 	}
@@ -92,4 +89,34 @@ int _strlen(char *s)
 	while (*s != '\0')
 		len++, s++;
 	return (len);
+}
+/**
+ * print_S - prints a non standard string(S) to stdout
+ * @str: the string to print
+ * Return: number of characters printed.
+ */
+int print_S(char *str)
+{
+	char *buff, *prfx = "\\x";
+	int n;
+
+	n = 0;
+	while (*str)
+	{
+		if (*str < 32 || *str >= 127)
+		{
+			n += my_puts(prfx);
+			if (*str < 16)
+				n += my_putchar(48);
+			buff = base_c(*str, 16, 1);
+			if (!buff)
+				return (3);
+			n += my_puts(buff);
+			free(buff);
+		}
+		else
+			n += my_putchar(*str);
+		str++;
+	}
+	return (n);
 }
