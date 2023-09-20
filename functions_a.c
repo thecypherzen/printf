@@ -91,4 +91,3 @@ int format_printr(va_list list, char chr)
 	}
 	return (0);
 }
-OB
