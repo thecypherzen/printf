@@ -82,12 +82,40 @@ int format_printr(va_list list, char chr)
 		int n;
 		_uint obase;
 
-		obase = (chr == 'b' ? 2 : (chr == 'o' ? 0 : 1));
+		obase = (chr == 'b' ? 2 : (chr == 'o' ? 8 : 16));
 		hold = base_c(va_arg(list, _uint), obase, chr == 'x' ? 0 : 1);
 		if (!hold)
 			return (0);
 		n = my_puts(hold), free(hold);
 		return (n);
 	}
+	if (chr == 'S')
+	{
+		char *str;
+
+		str = va_arg(list, char *);
+		if (!str)
+			return (-1);
+		return (print_S(str));
+	}
 	return (0);
+}
+
+/**
+ * base_printr - prints out a converted base num - 8, 2, & 16
+ * @num: the number
+ * @obase: output base
+ * @is_uppr: 1 if uppercase, 0 otherwise
+ * Return: number of chars printed
+ */
+int base_printr(_uint num, _uint obase, int is_uppr)
+{
+	char *hold;
+	int n;
+
+	hold = base_c(num, obase, is_uppr);
+	if (!hold)
+		return (-1);
+	n = my_puts(hold), free(hold);
+	return (n);
 }

@@ -15,8 +15,8 @@ int main(void)
     void *addr;
     char *word = NULL;
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
+    len = _printf(NULL);
+    len2 = printf("%s\n", word);
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);
@@ -42,12 +42,12 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
 
-    printf("(pf)->\t%d | %i\n", 0xb, 0xb);
-    _printf("(_pf)->\t%d | %i\n", 0xb, 0xb);
-    len = _printf(“%c%c%c%c%s\n”, -48, 98, 99, 100, word);
+    printf("(pf)->\t31(%x), 127(%x) | 31(%X), 127(%X)\n", 31, 127, 31, 255);
+    _printf("(_pf)->\t%S\n", "Best\nSchool");
+/*    len = _printf(“%c%c%c%c%s\n”, -48, 98, 99, 100, word);
     len2 = printf(“%c%c%c%c%s\n”, -48, 98, 99, 100, word);
     printf(“%d | %d\n”, len, len2);
-/*    _printf("Unknown:[%r]\n");
+    _printf("Unknown:[%r]\n");
       printf("Unknown:[%r]\n"); */
     return (0);
 }

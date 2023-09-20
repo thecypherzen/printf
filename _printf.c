@@ -11,28 +11,28 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	n = 0;
-	if (format)
-	{
-		va_start(list, format);
-		while (*format)
-		{
-			if (*format == '%')
-			{
-				if ((*format + 1) == '\0')
-				{
-					va_end(list);
-					return (n);
-				}
-				n += format_printr(list, *(format + 1));
-				format++;
-			}
+	if (!format || (*format == '%' && *(format + 1) == '\0'))
+		return (-1);
+	if (!(*format))
+		return (n);
 
-			else
-				n += my_putchar(*format);
+	va_start(list, format);
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			if ((*format + 1) == '\0')
+			{
+				va_end(list);
+				return (-1);
+			}
+			n += format_printr(list, *(format + 1));
 			format++;
 		}
-		va_end(list);
-		return (n);
+		else
+			n += my_putchar(*format);
+		format++;
 	}
-	return (-1);
+	va_end(list);
+	return (n);
 }
