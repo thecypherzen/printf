@@ -28,6 +28,8 @@ int main(void)
     printf("Unsigned octal:[%o]\n", ui);
     _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("\n0(_pf) ->\t hex:(%x, %X), oct: (%o), bin: (%b)\n\n", 0, 0, 0 , 0);
+    printf("0(pf) ->\t hex:(%x, %X), oct: (%o), bin: (%d)\n\n", 0, 0, 0 , 0);
     _printf("Character:[%c]\n", 'H');
     printf("Character:[%c]\n", 'H');
     _printf("String:[%s]\n", "I am a string !");
@@ -38,7 +40,10 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
+
+    printf("(pf)->\t%d | %i\n", 0xb, 0xb);
+    _printf("(_pf)->\t%d | %i\n", 0xb, 0xb);
+/*    _printf("Unknown:[%r]\n");
+      printf("Unknown:[%r]\n"); */
     return (0);
 }
