@@ -7,32 +7,29 @@
  */
 int _printf(const char *format, ...)
 {
-	int n;
+	int (*current_func)(int, ...), n, k;
 	va_list list;
+	char *buffr;
 
-	n = 0;
-	if (!format || (*format == '%' && *(format + 1) == '\0'))
+	buff = malloc(sizeof(char) * 1024);
+	if (!buffr || !format || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
 	if (!(*format))
 		return (n);
-
-	va_start(list, format);
-	while (*format)
+	va_start(list, format), n = k = 0;
+	while (format[k])
 	{
-		if (*format == '%')
+		if (format[k] == '%')
 		{
-			if ((*format + 1) == '\0')
-			{
-				va_end(list);
-				return (-1);
-			}
-			n += format_printr(list, *(format + 1));
-			format++;
+			if ((format[++k]) == '\0')
+				return (printf_fail(n, buffr, list));
+			current_func = f_selectr(format, k);
 		}
 		else
-			n += my_putchar(*format);
-		format++;
+			n = writechar(n, list, buff);
+		k++;
 	}
+	buffr[n] = '\0', print_buffr(buffr), free(buffr);
 	va_end(list);
 	return (n);
 }
