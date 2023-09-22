@@ -119,3 +119,5 @@ int base_printr(_uint num, _uint obase, int is_uppr)
 	n = my_puts(hold), free(hold);
 	return (n);
 }
+//printf("formatstri %+hl %S dng", ...);
+//printf("name: %s\nHeight: %+ld thanks\n",...);

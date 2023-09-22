@@ -10,9 +10,9 @@
 int (*f_selectr(char *str, int idx))(int, ...)
 {
 	fs_type funcs[] = {
-		{"c", writechar}, {"s", writestr},
+		{"c", writechar}, {"s", writestr}, {"+diu", writeint}, {"S", nonstr},
 		{NULL, NULL}
-	};
+	};   "S d"
 	int i, j, k;
 	char *fmtstr, c;
 
@@ -53,8 +53,9 @@ char *fmtstr_makr(char *str, int k)
         if (!fmtstr)
                 return (NULL);
 
-        for (j = 0; j < 3; j++, k++)
-                fmtstr[j] = str[k];
+        for (j = 0; j < 3; j++)
+                fmtstr[j] = str[++k];
         fmtstr[j] = '\0', printf("format str: %s\n", fmtstr);
 	return (fmtstr);
 }
+
