@@ -155,3 +155,9 @@ Handle the following custom conversion specifier:
 
 r : prints the reversed string
 
+14. The flood of print has turned reading into a process of gulping rather than savoring
+#advanced
+Score: 34.21% (Checks completed: 34.21%)
+Handle the following custom conversion specifier:
+
+R: prints the rot13'ed string
