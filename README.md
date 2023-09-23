@@ -161,3 +161,8 @@ Score: 34.21% (Checks completed: 34.21%)
 Handle the following custom conversion specifier:
 
 R: prints the rot13'ed string
+
+15. *
+#advanced
+Score: 15.29% (Checks completed: 15.29%)
+All the above options work well together.
