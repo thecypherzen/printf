@@ -9,13 +9,8 @@
  */
 int main(void)
 {
-	int len;
 
-	len = _printf("%");
+	_printf("%%\n");
 
-	fflush(stdout);
-
-	printf("%d.\n", len);
-	fflush(stdout);
 	return (1);
 }
