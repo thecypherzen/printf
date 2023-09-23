@@ -83,7 +83,8 @@ int format_printr(va_list list, char chr)
 		_uint obase;
 
 		obase = (chr == 'b' ? 2 : (chr == 'o' ? 8 : 16));
-		hold = base_c(va_arg(list, _uint), obase, chr == 'x' ? 0 : 1);
+		hold = base_c(va_arg(list, _uint), obase,
+			      chr == 'x' ? 0 : 1);
 		if (!hold)
 			return (0);
 		n = my_puts(hold), free(hold);

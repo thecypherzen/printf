@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			if ((*format + 1) == '\0')
+			if (*(format + 1) == '\0')
 			{
 				va_end(list);
 				return (-1);
