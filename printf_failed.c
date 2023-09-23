@@ -7,10 +7,9 @@
  * @list: va_list
  * Return: -1 always
  */
-int printf_fail(int idx, char *buffr, va_list list)
+int printf_failed(char *buffr, int size)
 {
-	if (idx < 1024)
-		buffr[idx] = '\0', printf_buff(buffr);
+	print_buffr(buffr, size);
 	free(buffr);
 	return (-1);
 }

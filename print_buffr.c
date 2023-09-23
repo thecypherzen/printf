@@ -6,7 +6,7 @@
  * @buffr: ptr to buffer in memory
  * Return: num of chars printed
  */
-int print_buffr(char *buffr)
+int print_buffr(char *buffr, int size)
 {
-	return (write(1, buffr, _strlen(buffr)));
+	return (write(1, buffr, size));
 }
