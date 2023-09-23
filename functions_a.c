@@ -7,10 +7,7 @@
  */
 int my_puts(char *str)
 {
-	if (str)
-		return (write(1, str, _strlen(str)));
-	else
-		return (0);
+	return (write(1, str, _strlen(str)));
 }
 
 /**
