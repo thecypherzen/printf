@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * my_puts - prints a string to stdout
+ * my_puts - This prints a string to stdout
  * @str: ptr to string
  * Return: num of chars written.
  */

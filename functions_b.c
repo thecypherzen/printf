@@ -4,7 +4,7 @@
  * base_c - converst an unsigned int from decimal to other base.
  * @n: the unsigned int
  * @obase: output base - 0: decimal, 1: oct, 2: bin, 16 otherwise
- * @is_upper: sets if result should be uppercase (1) or lowercase (0)
+ * @is_upper:This sets of result should be uppercase (1) or lowercase (0)
  * Return: ptr to output string
  */
 char *base_c(_uint n, _uint obase, int is_upper)
