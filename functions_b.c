@@ -101,6 +101,8 @@ int print_S(char *str)
 	int n;
 
 	n = 0;
+	if (!str)
+		return (0);
 	while (*str)
 	{
 		if (*str < 32 || *str >= 127)

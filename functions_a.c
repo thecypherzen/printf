@@ -7,10 +7,9 @@
  */
 int my_puts(char *str)
 {
-	if (str)
-		return (write(1, str, _strlen(str)));
-	else
-		return (0);
+	if (!str)
+		str = "(null)";
+	return (write(1, str, _strlen(str)));
 }
 
 /**
@@ -64,6 +63,7 @@ int print_int(int n, int signed_int)
 */
 int format_printr(va_list list, char chr)
 {
+
 	if (chr == 'c')
 		return (my_putchar(va_arg(list, int)));
 	if (chr == 's')
@@ -75,29 +75,11 @@ int format_printr(va_list list, char chr)
 	if (chr == 'u')
 		return (print_int(va_arg(list, int), 0));
 	if (chr == 'b' || chr == 'o' || chr == 'x' || chr == 'X')
-	{
-		char *hold;
-		int n;
-		_uint obase;
-
-		obase = (chr == 'b' ? 2 : (chr == 'o' ? 8 : 16));
-		hold = base_c(va_arg(list, _uint), obase,
-			      chr == 'x' ? 0 : 1);
-		if (!hold)
-			return (0);
-		n = my_puts(hold), free(hold);
-		return (n);
-	}
+		return (call_base_cal(list, chr));
 	if (chr == 'S')
-	{
-		char *str;
-
-		str = va_arg(list, char *);
-		if (!str)
-			return (-1);
-		return (print_S(str));
-	}
-	return (0);
+		return (print_S(va_arg(list, char *)));
+	my_putchar('%'), my_putchar(chr);
+	return (2);
 }
 /**
  * base_printr - prints out a converted base num - 8, 2, & 16

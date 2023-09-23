@@ -20,5 +20,5 @@ void rev_string(char *s);
 int _strlen(char *s);
 int base_printr(_uint num, _uint obase, int is_uppr);
 int print_S(char *str);
-
+int call_base_cal(va_list list, char chr);
 #endif
