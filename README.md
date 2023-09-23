@@ -128,3 +128,7 @@ h
 Conversion specifiers to handle: d, i, u, o, x, X
 
 
+9. Print some money and give it to us for the rain forests
+#advanced
+Score: 1.19% (Checks completed: 1.19%)
+Handle the field width for non-custom conversion specifiers.
