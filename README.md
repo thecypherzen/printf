@@ -147,3 +147,11 @@ Handle the 0 flag character for non-custom conversion specifiers.
 #advanced
 Score: 1.18% (Checks completed: 1.18%)
 Handle the - flag character for non-custom conversion specifiers.
+
+13. Print is the sharpest and the strongest weapon of our party
+#advanced
+Score: 34.21% (Checks completed: 34.21%)
+Handle the following custom conversion specifier:
+
+r : prints the reversed string
+
