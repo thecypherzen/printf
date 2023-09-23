@@ -7,9 +7,10 @@
  */
 int my_puts(char *str)
 {
-	if (!str)
-		str = "(null)";
-	return (write(1, str, _strlen(str)));
+	if (str)
+		return (write(1, str, _strlen(str)));
+	else
+		return (0);
 }
 
 /**
@@ -19,10 +20,7 @@ int my_puts(char *str)
  */
 int my_putchar(char chr)
 {
-	if (chr)
-		return (write(1, &chr, 1));
-	else
-		return (0);
+	return (write(1, &chr, 1));
 }
 /**
  * print_int - prints signed int to stdout
@@ -82,30 +80,40 @@ int format_printr(va_list list, char chr)
 		int n;
 		_uint obase;
 
-		obase = (chr == 'b' ? 2 : (chr == 'o' ? 0 : 1));
-		hold = base_c(va_arg(list, _uint), obase, chr == 'x' ? 0 : 1);
+		obase = (chr == 'b' ? 2 : (chr == 'o' ? 8 : 16));
+		hold = base_c(va_arg(list, _uint), obase,
+			      chr == 'x' ? 0 : 1);
 		if (!hold)
 			return (0);
 		n = my_puts(hold), free(hold);
 		return (n);
 	}
+	if (chr == 'S')
+	{
+		char *str;
+
+		str = va_arg(list, char *);
+		if (!str)
+			return (-1);
+		return (print_S(str));
+	}
 	return (0);
 }
-
 /**
-* @handle_buffer - concatenates the buffer characters
-* @buf: buffer pointer
-* @ibuf: index of buffer pointer
-* Return: index of buffer pointer
-*/
-unsigned int handle_buffer(char *buf, char c , unsigned int ibuf)
+ * base_printr - prints out a converted base num - 8, 2, & 16
+ * @num: the number
+ * @obase: output base
+ * @is_uppr: 1 if uppercase, 0 otherwise
+ * Return: number of chars printed
+ */
+int base_printr(_uint num, _uint obase, int is_uppr)
 {
-    if (ibuf == 1024)
-    {
-        print_buffer(buf, ibuf);
-        ibuf = 0;
-    }
-    buf[ibuf] = c;
-    ibuf++;
-    return (ibuf);
+	char *hold;
+	int n;
+
+	hold = base_c(num, obase, is_uppr);
+	if (!hold)
+		return (-1);
+	n = my_puts(hold), free(hold);
+	return (n);
 }

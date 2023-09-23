@@ -18,7 +18,7 @@ char *base_c(_uint, _uint, int);
 _uint get_rem(_uint *, _uint *, _uint, int);
 void rev_string(char *s);
 int _strlen(char *s);
-int print_buffer(char *buf, unsigned int abuf);
-unsigned int handle_buffer(char *buf, char c , unsigned int ibuf);
+int base_printr(_uint num, _uint obase, int is_uppr);
+int print_S(char *str);
 
 #endif
