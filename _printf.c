@@ -3,7 +3,7 @@
 /**
  * _printf - produces output according to a format (for c, s and %).
  * @format: the formatting string
- * Return: number of chars printed to stdout.
+ * Return: The number of chars printed to stdout.
  */
 int _printf(const char *format, ...)
 {

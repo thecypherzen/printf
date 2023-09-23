@@ -93,3 +93,14 @@ int _strlen(char *s)
 		len++, s++;
 	return (len);
 }
+
+/**
+* @print_buffer - prints a buffer
+* @buf: buffer pointer
+* @abuf: index of buffer pointer
+* Return: index of buffer pointer
+*/
+int print_buffer(char *buf, unsigned int abuf)
+{
+    return (write(1, buf, abuf));
+}

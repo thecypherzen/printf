@@ -91,3 +91,21 @@ int format_printr(va_list list, char chr)
 	}
 	return (0);
 }
+
+/**
+* @handle_buffer - concatenates the buffer characters
+* @buf: buffer pointer
+* @ibuf: index of buffer pointer
+* Return: index of buffer pointer
+*/
+unsigned int handle_buffer(char *buf, char c , unsigned int ibuf)
+{
+    if (ibuf == 1024)
+    {
+        print_buffer(buf, ibuf);
+        ibuf = 0;
+    }
+    buf[ibuf] = c;
+    ibuf++;
+    return (ibuf);
+}
