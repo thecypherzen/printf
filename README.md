@@ -132,3 +132,9 @@ Conversion specifiers to handle: d, i, u, o, x, X
 #advanced
 Score: 1.19% (Checks completed: 1.19%)
 Handle the field width for non-custom conversion specifiers.
+
+10. The negative is the equivalent of the composer's score, and the print the performance
+#advanced
+Score: 1.19% (Checks completed: 1.19%)
+Handle the precision for non-custom conversion specifiers.
+
