@@ -7,8 +7,6 @@
  */
 int my_puts(char *str)
 {
-	if (!str)
-		str = "(null)";
 	return (write(1, str, _strlen(str)));
 }
 
@@ -19,10 +17,7 @@ int my_puts(char *str)
  */
 int my_putchar(char chr)
 {
-	if (chr)
-		return (write(1, &chr, 1));
-	else
-		return (0);
+	return (write(1, &chr, 1));
 }
 /**
  * print_int - prints signed int to stdout
