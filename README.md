@@ -138,3 +138,12 @@ Handle the field width for non-custom conversion specifiers.
 Score: 1.19% (Checks completed: 1.19%)
 Handle the precision for non-custom conversion specifiers.
 
+11. It's depressing when you're still around and your albums are out of print
+#advanced
+Score: 1.18% (Checks completed: 1.18%)
+Handle the 0 flag character for non-custom conversion specifiers.
+
+12. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection
+#advanced
+Score: 1.18% (Checks completed: 1.18%)
+Handle the - flag character for non-custom conversion specifiers.
