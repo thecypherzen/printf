@@ -13,20 +13,19 @@ int _printf(const char *format, ...)
 	n = 0;
 	if (!format || (*format == '%' && *(format + 1) == '\0'))
 		return (-1);
+	if (!(*format))
+		return (n);
 
 	va_start(list, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			/**
-			 * if (*(format + 1) == '\0')
-			 *{
-			 *my_putchar('0');
-			 *va_end(list);
-			 *return (-1);
-			 *	}
-			 */
+			if (*(format + 1) == '\0')
+			{
+				va_end(list);
+				return (-1);
+			}
 			n += format_printr(list, *(format + 1));
 			format++;
 		}
