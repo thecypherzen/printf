@@ -17,24 +17,30 @@ typedef unsigned long int _ulint;
 typedef struct functions
 {
 	char *flag;
-	int (*func)(int, ...);
+	int (*func)(va_list list, ...);
 } fs_type;
 int _printf(const char *format, ...);
 int _strlen(char *s);
 char check_specifier(char c, char *single, char *prefix,
 		     int *is_single, int r, int *halt);
-int (*f_selectr(char *str, int idx))(va_list list, int b_index, ...);
-int get_specifiers(char *dest, const char *format, int index);
-void reset_specifiers(char *fmtstr, int sz);
-int writechar(va_list list, int b_index, ...);
-int writestr(int b_index, ...);
-int print_buffr(char *buffr, int size);
+void flush_buffr(char *buffr, int size);
+int func_selectr(va_list list, char *fmtstr, char *buffr, int *b_index);
+_uint get_rem(_uint *, _uint *, _uint, int);
 int printf_failed(char *buffr, int size);
+int print_buffr(char *buffr, int size);
+int set_specifiers(char *dest, const char *format, int idx);
+int write_S(va_list list, ...);
+int write_base_res(va_list list, ...);
+int write_char(va_list list, ...);
+int write_int(va_list list, ...);
+int write_rev_str(va_list list, ...);
+int write_rot(va_list list, ...);
+int write_str(va_list list, ...);
+
 int format_printr(va_list, char);
 int print_int(int, int);
-char *base_c(_uint, _uint, int);
-_uint get_rem(_uint *, _uint *, _uint, int);
-void rev_string(char *s);
+char *base_cal(_uint, _uint, int);
+
 int base_printr(_uint num, _uint obase, int is_uppr);
-int print_S(char *str);
+
 #endif

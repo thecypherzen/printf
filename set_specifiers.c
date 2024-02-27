@@ -1,6 +1,42 @@
 #include "main.h"
 
 /**
+ * set_specifiers - constructs format string.
+ * @dest: memory location to store format string
+ * @format: format string from _printf function
+ * @idx: index of @format to start searching at.
+ * Return: len of constructed format string
+ */
+int set_specifiers(char *dest, const char *format, int idx)
+{
+	char single[] = {'%', 'c', 's', 'i', 'd', 'o', 'u', 'b', 'x',
+			'X', 'S', 'p', 'r', 'R'};
+	char prefix[] = {'l', 'h', '#', '+', ' '}, c;
+	int is_single, r, i, halt, k;
+
+	i = is_single = r = k = halt = 0;
+	while (i < 3)
+	{
+		c = check_specifier(format[i + idx], single, prefix,
+				&is_single, r, &halt);
+		if (!c)
+		{
+			dest[i] = '\0';
+			return (i);
+		}
+		else
+		{
+			dest[i] = c;
+			if (is_single || halt)
+				return (++i);
+		}
+		i++, r++;
+	}
+	dest[i] = '\0';
+	return (i);
+}
+
+/**
  * check_specifier - checks if a char is a valid format specifier
  * @c: the char
  * @single: ptr to single char specifier's array
@@ -10,8 +46,8 @@
  * @halt: end string creation process.
  * Return: 0 always
  */
-char check_specifier(char c, char *single, char *prefix,
-		 int *is_single, int r, int *halt)
+char check_specifier(char c, char *single, char *prefix, int *is_single,
+		     int r, int *halt)
 {
 	int i = 0;
 
@@ -35,7 +71,6 @@ char check_specifier(char c, char *single, char *prefix,
 				       c != 'S' && c != 'p' && c != 'r' &&
 				       c != 'R' && c != '%' && c != ' '))
 				return (c);
-			return ('\0');
 		}
 		i++;
 	}
